@@ -15,6 +15,7 @@ final class Log4jEventUtil {
                 logEvent.getTimeMillis(),
                 logEvent.getLoggerName(),
                 logEvent.getThreadName(),
-                logEvent.getMessage().getFormattedMessage());
+                logEvent.getMessage().getFormattedMessage(),
+                logEvent.getContextData().toMap());
     }
 }

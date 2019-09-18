@@ -3,6 +3,8 @@ package ru.gnkoshelev.elastic.logger.logback;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ru.gnkoshelev.elastic.logger.core.Event;
 
+import java.util.HashMap;
+
 /**
  * @author Gregory Koshelev
  */
@@ -15,6 +17,7 @@ final class LogbackEventUtil {
                 logEvent.getTimeStamp(),
                 logEvent.getLoggerName(),
                 logEvent.getThreadName(),
-                logEvent.getFormattedMessage());
+                logEvent.getFormattedMessage(),
+                new HashMap<>(logEvent.getMDCPropertyMap()));
     }
 }

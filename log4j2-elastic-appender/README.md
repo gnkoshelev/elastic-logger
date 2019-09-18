@@ -12,7 +12,7 @@ After that, add Logback Elastic Appender to your project
 <dependency>
   <groupId>ru.gnkoshelev.elastic-logger</groupId>
   <artifactId>log4j2-elastic-appender</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 </dependency>
 ```
 
