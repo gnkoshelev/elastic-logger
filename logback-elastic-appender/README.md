@@ -39,10 +39,10 @@ After that, add Logback Elastic Appender to your project
        <periodMs>2000</periodMs>
        <capacity>1000000</capacity>
        <threadCount>1</threadCount>
-       <retryCount>3</retryCount>
        <indexPattern>index_prefix_here-%d</indexPattern>
-       <url>http://elk-test:8080/async-logs/</url>
+       <url>http://localhost:8080/</url>
        <apiKey>ELK applicationKeyHere</apiKey>
+       <retryCount>3</retryCount>
     </Configuration>
   </appender>
 

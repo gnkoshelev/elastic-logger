@@ -10,6 +10,7 @@
     <modules>
         <module>elastic-logger-core</module>
         <module>logback-elastic-appender</module>
+        <module>log4j2-elastic-appender</module>
     </modules>
     <packaging>pom</packaging>
 
