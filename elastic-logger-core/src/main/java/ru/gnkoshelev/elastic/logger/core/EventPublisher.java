@@ -6,6 +6,7 @@ import ru.gnkoshelev.elastic.logger.core.time.TimeUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -109,7 +110,9 @@ public final class EventPublisher {
         ByteArrayOutputStream baos = new ByteArrayOutputStream(Event.SOFT_UPPER_BOUND_EVENT_SIZE * actualBatchSize);
         try {
             for (Event event : events) {
-                baos.write(event.toJsonString().getBytes());
+                baos.write(INDEX_OPERATION);
+                baos.write('\n');
+                baos.write(event.toJsonString().getBytes(StandardCharsets.UTF_8));
                 baos.write('\n');
             }
         } catch (IOException e) { /* It's impossible to catch IOEx here as BAOS do not throw IOEx in write method */}
@@ -142,4 +145,6 @@ public final class EventPublisher {
 
         httpSender.close();
     }
+
+    private static final byte[] INDEX_OPERATION = "{\"index\":{}}".getBytes(StandardCharsets.UTF_8);
 }

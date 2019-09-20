@@ -23,7 +23,7 @@ public abstract class HttpSender implements Closeable {
     }
 
     public void send(final String index, final byte[] data) {
-        HttpPost httpPost = new HttpPost(url + index);
+        HttpPost httpPost = new HttpPost(url + index + "/LogEvent/_bulk");
         if (auth != null) {
             httpPost.setHeader("Authorization", auth);
         }
